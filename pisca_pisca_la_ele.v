@@ -1,6 +1,4 @@
 
-
-
 module lasid (
     input clk, rst,
     input f0, f1,

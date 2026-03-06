@@ -1,0 +1,27 @@
+# Compile of tb_mux_4to1_32bit.sv was successful.
+# Compile of mux_4to1_32bit.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_mux_4to1_32bit
+# vsim -gui work.tb_mux_4to1_32bit 
+# Start time: 14:44:31 on Mar 06,2026
+# Loading sv_std.std
+# Loading work.tb_mux_4to1_32bit
+# Loading work.mux_4to1_32bit
+add wave -position end  sim:/tb_mux_4to1_32bit/a
+add wave -position end  sim:/tb_mux_4to1_32bit/b
+add wave -position end  sim:/tb_mux_4to1_32bit/c
+add wave -position end  sim:/tb_mux_4to1_32bit/d
+add wave -position end  sim:/tb_mux_4to1_32bit/sel
+add wave -position end  sim:/tb_mux_4to1_32bit/f
+run -all
+#                    0 | sel = 00 | f = aaaaaaaa (Saída) | a = aaaaaaaa | b = bbbbbbbb | c = cccccccc | d = dddddddd
+#                   10 | sel = 01 | f = bbbbbbbb (Saída) | a = aaaaaaaa | b = bbbbbbbb | c = cccccccc | d = dddddddd
+#                   20 | sel = 10 | f = cccccccc (Saída) | a = aaaaaaaa | b = bbbbbbbb | c = cccccccc | d = dddddddd
+#                   30 | sel = 11 | f = dddddddd (Saída) | a = aaaaaaaa | b = bbbbbbbb | c = cccccccc | d = dddddddd
+#                   40 | sel = 00 | f = 12345678 (Saída) | a = 12345678 | b = 9abcdef0 | c = deadbeef | d = cafebabe
+#                   50 | sel = 01 | f = 9abcdef0 (Saída) | a = 12345678 | b = 9abcdef0 | c = deadbeef | d = cafebabe
+#                   60 | sel = 10 | f = deadbeef (Saída) | a = 12345678 | b = 9abcdef0 | c = deadbeef | d = cafebabe
+#                   70 | sel = 11 | f = cafebabe (Saída) | a = 12345678 | b = 9abcdef0 | c = deadbeef | d = cafebabe
+# ** Note: $stop    : C:/Users/Lenovo/Documents/GitHub/Verilog/LabOAC/A1/tb_mux_4to1_32bit.sv(42)
+#    Time: 80 ns  Iteration: 0  Instance: /tb_mux_4to1_32bit
+# Break in Module tb_mux_4to1_32bit at C:/Users/Lenovo/Documents/GitHub/Verilog/LabOAC/A1/tb_mux_4to1_32bit.sv line 42
