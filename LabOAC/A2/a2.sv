@@ -1,70 +1,26 @@
-lw x10, v1
-lw x11, v2
-lw x12, v3
-blt x11, x10, v1_maior
-bge x11, x10, fim 
+//Se (i == j) então:
+//    f = g + h
+//Senão:
+//    f = g - h
+//Fim
 
-v1_maior:
-	add x12, x10, x11
-	sw x12, v3
+addi x20, x0, 1    # g = 1
+addi x21, x0, 2    # h = 2
+addi x22, x0, 16   # i = 16
+addi x23, x0, 16   # j = 16 
 
-fim:
-	halt
+//Pula para Else se não forem iguais
+bne x22, x23, Else
 
-v1: .word 0x6
-v2: .word 0x15
-v3: .word 0x0000
+//Se j == i
+add x19, x20, x21
 
+jal x0, Exit
 
-//v3: ['00', '00', '00', '00']
+Else: //Se j != i
+    sub x19, x20, x21
 
-////////////////////////////////////
-
-lw x10, v1
-lw x11, v2
-lw x12, v3
-blt x11, x10, v1_maior
-bge x11, x10, fim 
-
-v1_maior:
-	add x12, x10, x11
-	sw x12, v3
-
-fim:
-	halt
-
-v1: .word 0x14
-v2: .word 0x7
-v3: .word 0x0000
-
-
-//v3: ['1b', '00', '00', '00']
-
-////////////////////////////////////
-
-
-lw x10, v1
-lw x11, v2
-lw x12, v3
-blt x11, x10, v1_maior
-bge x11, x10, fim 
-
-v1_maior:
-	add x12, x10, x11
-	sw x12, v3
-
-fim:
-	halt
-
-v1: .word 0x25
-v2: .word 0x12
-v3: .word 0x0000
-
-
-//v3: ['37', '00', '00', '00']
-
-
-
-
+Exit:
+    halt
 
 
