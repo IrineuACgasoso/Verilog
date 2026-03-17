@@ -1,26 +1,30 @@
-//Se (i == j) então:
-//    f = g + h
+//int a = 6;
+//int b = 15;
+//int m = 0;
+//
+//Se (b < m) então:
+//    m = a + b;
 //Senão:
-//    f = g - h
+//    m = a - b;
 //Fim
 
-addi x20, x0, 1    # g = 1
-addi x21, x0, 2    # h = 2
-addi x22, x0, 16   # i = 16
-addi x23, x0, 16   # j = 16 
+lw x10, a
+lw x11, b
+lw x12, m
+// Brach se b < m
+blt x11, x12, m_maior
+// Caso contrário, subtrai a - b
+sub x12, x10, x11
+jal x0, fim
 
-//Pula para Else se não forem iguais
-bne x22, x23, Else
+m_maior:
+	add x12, x10, x11
 
-//Se j == i
-add x19, x20, x21
+fim:
+	halt
 
-jal x0, Exit
-
-Else: //Se j != i
-    sub x19, x20, x21
-
-Exit:
-    halt
+a: .word 0x6
+b: .word 0x15
+m: .word 0x0000
 
 
